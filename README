@@ -1,0 +1,9 @@
+kdb+tick data feed for SBS-1 ADS-B messages from an rtl-sdr device.
+
+1.clone kdb-tick from https://github.com/KxSystems/kdb-tick and dump1090 from https://github.com/mutability/dump1090
+2.copy sym.q to kdb-tick/tick and start the tickerplant,rdb and hdb:
+  q tick.q sym . -p 5010
+  q tick/r.q :5010 :5012 -p 5011
+  q sym -p 5012
+3.compile and start dump1090: ./dump1090 --net
+4.compile the feed handler g.C and start: make && ./g
