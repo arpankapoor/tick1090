@@ -6,4 +6,4 @@ kdb+tick data feed for SBS-1 ADS-B messages from an rtl-sdr device.
   q tick/r.q :5010 :5012 -p 5011
   q sym -p 5012
 3.compile and start dump1090: ./dump1090 --net
-4.compile the feed handler g.C and start: make && ./g
+4.start the feed handler: ./g.py

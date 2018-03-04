@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import csv,socket
 from qpython import qconnection,qtype
 
