@@ -1,1 +1,17 @@
-fd:([]time:`timespan$(); sym:`g#`symbol$(); mtype:`symbol$(); ttype:`short$(); cs:`symbol$(); alt:`int$(); gs:`int$(); track:`int$(); lat:`float$(); lon:`float$(); vrate:`int$(); sqwk:`symbol$(); alert:`boolean$(); emerg:`boolean$(); spi:`boolean$(); ong:`boolean$())
+fd:([]
+ time:`timespan$();
+ sym:`g#`symbol$();
+ mtype:`symbol$();
+ ttype:`short$();
+ cs:`symbol$();
+ alt:`int$();
+ gs:`int$();
+ track:`int$();
+ lat:`float$();
+ lon:`float$();
+ vrate:`int$();
+ sqwk:`symbol$();
+ alert:`boolean$();
+ emerg:`boolean$();
+ spi:`boolean$();
+ ong:`boolean$())
