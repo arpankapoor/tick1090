@@ -1,9 +1,17 @@
 kdb+tick data feed for SBS-1 ADS-B messages from an rtl-sdr device.
 
-1.clone kdb-tick from https://github.com/KxSystems/kdb-tick and dump1090 from https://github.com/mutability/dump1090
-2.copy sym.q to kdb-tick/tick and start the tickerplant,rdb and hdb:
-  q tick.q sym . -p 5010
-  q tick/r.q :5010 :5012 -p 5011
-  q sym -p 5012
-3.compile and start dump1090: ./dump1090 --net
-4.start the feed handler: ./g.py
+Running on a raspberry pi:
+1.download kdb+ from https://kx.com/download/
+2.clone kdb-tick from https://github.com/KxSystems/kdb-tick along with this repo.
+3.copy sym.q to ~/kdb-tick/tick and start the tickerplant,rdb and hdb:
+  $ cp ~/tick1090/sym.q ~/kdb-tick/tick/
+  $ cd ~/kdb-tick
+  $ nohup ~/q/l32arm/q tick.q sym . -p 5010 </dev/null >/dev/null 2>&1 &
+  $ nohup ~/q/l32arm/q tick/r.q :5010 :5012 -p 5011 </dev/null >/dev/null 2>&1 &
+  $ nohup ~/q/l32arm/q sym -p 5012 </dev/null >/dev/null 2>&1 &
+3.download and install latest dump1090 .deb from https://github.com/mutability/dump1090/releases:
+  $ curl -LO https://github.com/mutability/dump1090/releases/download/v1.14/dump1090-mutability_1.14_armhf.deb
+  $ sudo dpkg -i dump1090-mutability_1.14_armhf.deb
+4.start dump1090: nohup dump1090-mutability --net </dev/null >/dev/null 2>&1 &
+5.install qpython using python3-pip: sudo apt install -y python3-pip python3-numpy && sudo pip3 install qpython
+6.start the feed handler: nohup ~/tick1090/g.py </dev/null >/dev/null 2>&1 &
